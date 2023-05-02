@@ -10,6 +10,7 @@ import { Pets } from "./pages/Pets/Pets";
 import { NovoProduto} from "./pages/NovoProduto/NovoProduto.jsx"
 import { Dashboard } from "./pages/DashBoard/Dashboard";
 import { Produtos } from "./pages/Produtos/Produtos";
+import { NovoServico } from "./pages/NovoServico/NovoServico.jsx"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/pets" element={<Pets />} />
           <Route path="/produtos" element={<Produtos/>} />
           <Route path="/produtos/novo" element={<NovoProduto/>}/>
+          <Route path="/servicos/novo" element={<NovoServico />} />
         </Route>
       </Routes>
     </BrowserRouter>
