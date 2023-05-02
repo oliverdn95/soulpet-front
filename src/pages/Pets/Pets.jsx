@@ -112,7 +112,7 @@ export function Pets() {
                         Fechar
                     </Button>
                 </Modal.Footer>
-            </Modal>git 
+            </Modal>
             {/* Modal de confirmação de exclusão do pet */}
             <Modal show={showDelete} onHide={handleCloseDelete}>
                 <Modal.Header closeButton>
