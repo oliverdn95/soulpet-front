@@ -9,6 +9,7 @@ export function Dashboard() {
 
     const [clientes, setClientes] = useState([]);
     const [pets, setPets] = useState([]);
+    const [produtos, setProdutos] = useState([]);
   
     useEffect(() => {
         initializeTable();
@@ -25,6 +26,13 @@ export function Dashboard() {
         axios.get("http://localhost:3001/pets")
             .then(response => {
                 setPets(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        axios.get("http://localhost:3001/produtos")
+            .then(response => {
+                setProdutos(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -50,6 +58,7 @@ export function Dashboard() {
                         <tbody><tr>
                             <td>{clientes.length}</td>
                             <td>{pets.length}</td>
+                            <td>{produtos.length}</td>
                         </tr>
                            
                             
