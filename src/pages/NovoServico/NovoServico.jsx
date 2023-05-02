@@ -23,7 +23,7 @@ export function NovoServico() {
 
     return (
         <div className="container">
-            <h1>Novo Serviço</h1>
+            <h1>Adicionar Serviço</h1>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3">
                     <Form.Label>Nome</Form.Label>

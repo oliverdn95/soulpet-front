@@ -12,6 +12,7 @@ import { Dashboard } from "./pages/DashBoard/Dashboard";
 import { Produtos } from "./pages/Produtos/Produtos";
 import { NovoServico } from "./pages/NovoServico/NovoServico.jsx"
 import { NovoAgendamento } from "./pages/NovoAgendamento/NovoAgendamento";
+import { Servicos } from "./pages/Servicos/Servicos";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/produtos/novo" element={<NovoProduto/>}/>
           <Route path="/servicos/novo" element={<NovoServico />} />
           <Route path="/agendamentos/novo" element={<NovoAgendamento />}/>
+          <Route path="/servicos" element={<Servicos />}/>
         </Route>
       </Routes>
     </BrowserRouter>
