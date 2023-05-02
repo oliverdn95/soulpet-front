@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Loader } from "../../components/Loader/Loader";
+import { toast } from "react-hot-toast";
 
 export function Produtos() {
 
@@ -49,6 +50,19 @@ export function Produtos() {
                 console.log(error);
             });
     }
+
+    function onDelete() {
+      axios.delete(`http://localhost:3001/produtos/${idProduto}`)
+          .then(response => {
+              toast.success(response.data.message, { position: "bottom-right", duration: 2000 });
+              initializeTable();
+          })
+          .catch(error => {
+              console.log(error);
+              toast.error(error.response.data.message, { position: "bottom-right", duration: 2000 });
+          });
+      handleClose();
+  }
 
     return (
       <div className="clientes container">
@@ -124,7 +138,7 @@ export function Produtos() {
             <Button variant="danger" onClick={handleClose}>
               Cancelar
             </Button>
-            <Button variant="primary">Excluir</Button>
+            <Button variant="primary" onClick={onDelete}>Excluir</Button>
           </Modal.Footer>
         </Modal>
       </div>
