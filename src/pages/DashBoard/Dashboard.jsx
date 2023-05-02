@@ -10,7 +10,7 @@ export function Dashboard() {
     const [clientes, setClientes] = useState([]);
     const [pets, setPets] = useState([]);
     const [produtos, setProdutos] = useState([]);
-  
+
     useEffect(() => {
         initializeTable();
     }, []);
