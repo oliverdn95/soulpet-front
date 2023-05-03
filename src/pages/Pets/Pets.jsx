@@ -10,7 +10,7 @@ export function Pets() {
 
     const [pets, setPets] = useState([]);
     const [showDetails, setShowDetails] = useState(false);
-    const [showDelete, setShowDelete] = useState(false)
+    const [showDelete, setShowDelete] = useState(false);
     const [selectedPet, setSelectedPet] = useState(null);
     const [idPet, setIdPet] = useState(null);
 
