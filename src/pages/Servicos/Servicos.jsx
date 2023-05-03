@@ -7,11 +7,9 @@ import { toast } from "react-hot-toast";
 
 export function Servicos() {
 
-    // const [listaServicos, setListaServicos] = useState(null);
     const [servicos, setServicos] = useState(null);
     const [show, setShow] = useState(false);
     const [idServ, setIdServ] = useState(null);
-    // const [showDelete, setShowDelete] = useState(false);
 
     // [FE-12] Integrar a remoção de Serviços#12
     const handleClose = () => {
