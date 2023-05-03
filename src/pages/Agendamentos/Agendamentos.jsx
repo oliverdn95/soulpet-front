@@ -11,6 +11,7 @@ export function Agendamentos() {
     const [show, setShow] = useState(false);
     const [idAgendamento, setIdAgendamentos] = useState(null);
 
+    //[FE-16] Integrar a remoção de Agendamentos#16
     const handleClose = () => {
         setIdAgendamentos(null);
         setShow(false)
@@ -71,7 +72,7 @@ export function Agendamentos() {
                                 return (
                                     <tr key={agendamento.id}>
                                         <td>{agendamento.dataAgendada}</td>
-                                        <td>{agendamento.realizada}</td>
+                                        <td>{agendamento.realizada? 'Concluído' : 'Pendente'}</td>
                                         <td className="d-flex gap-2">
                                             <Button variant="danger" onClick={() => handleShow(agendamento.id)}>
                                                 <i className="bi bi-trash-fill"></i>
