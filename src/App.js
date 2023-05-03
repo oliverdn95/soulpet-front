@@ -15,6 +15,7 @@ import { NovoServico } from "./pages/NovoServico/NovoServico.jsx"
 import { NovoAgendamento } from "./pages/NovoAgendamento/NovoAgendamento";
 import { Servicos } from "./pages/Servicos/Servicos";
 import { Agendamentos } from "./pages/Agendamentos/Agendamentos";
+import { EditaAgendamento } from "./pages/EditaAgendamento/EditaAgendamento";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           <Route path="/servicos/novo" element={<NovoServico />} />
           <Route path="/agendamentos" element={<Agendamentos />}/>
           <Route path="/agendamentos/novo" element={<NovoAgendamento />}/>
+          <Route path="/agendamentos/editar/:id" element={<EditaAgendamento/>}/>
+
           <Route path="/servicos" element={<Servicos />}/>
         </Route>
       </Routes>
