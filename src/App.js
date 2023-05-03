@@ -8,6 +8,7 @@ import { NovoPet } from "./pages/NovoPet/NovoPet";
 import { EditaPet } from "./pages/EditaPet/EditaPet";
 import { Pets } from "./pages/Pets/Pets";
 import { NovoProduto} from "./pages/NovoProduto/NovoProduto.jsx"
+import { EditaProduto} from "./pages/EditaProduto/EditaProduto"
 import { Dashboard } from "./pages/DashBoard/Dashboard";
 import { Produtos } from "./pages/Produtos/Produtos";
 import { NovoServico } from "./pages/NovoServico/NovoServico.jsx"
@@ -30,6 +31,7 @@ function App() {
           <Route path="/pets" element={<Pets />} />
           <Route path="/produtos" element={<Produtos/>} />
           <Route path="/produtos/novo" element={<NovoProduto/>}/>
+          <Route path="/produtos/editar/:id" element={<EditaProduto/>}/>
           <Route path="/servicos/novo" element={<NovoServico />} />
           <Route path="/agendamentos" element={<Agendamentos />}/>
           <Route path="/agendamentos/novo" element={<NovoAgendamento />}/>
