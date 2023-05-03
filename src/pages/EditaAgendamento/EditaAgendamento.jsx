@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
+import { useState } from "react";
 
-export function NovoAgendamento() {
+export function EditaAgendamento() {
+  
   const [pets, setPets] = useState([]);
   const [servicos, setServicos] = useState([]);
 
@@ -13,14 +15,16 @@ export function NovoAgendamento() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   function onSubmit(data) {
     axios
-      .post("http://localhost:3001/agendamentos", data)
+      .put(`http://localhost:3001/agendamentos/${id}`, data)
       .then((response) => {
-        toast.success("Agendamento adicionado.", {
+        toast.success("Agendamento editado.", {
           position: "bottom-right",
           duration: 2000,
         });
@@ -34,6 +38,14 @@ export function NovoAgendamento() {
         console.log(error);
       });
   }
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/agendamentos/${id}`).then((response) => {
+      const { dataAgendada, realizada, petId, servicoId } =
+        response.data;
+      reset({ dataAgendada, realizada, petId, servicoId });
+    });
+  }, [id, reset]);
 
   useEffect(() => {
     axios
@@ -59,7 +71,7 @@ export function NovoAgendamento() {
 
   return (
     <div className="container">
-      <h1>Registro de Agendamento</h1>
+      <h1>Editar Agendamento</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3">
           <Form.Label>Data prevista para o serviço</Form.Label>
@@ -134,10 +146,10 @@ export function NovoAgendamento() {
           <Form.Text className="invalid-feedback">
             {errors.servicoId?.message}
           </Form.Text>
-        </Form.Group>
+        </Form.Group> 
 
         <Button variant="primary" type="submit">
-          Agendar
+         Editar Agendamento
         </Button>
       </Form>
     </div>
