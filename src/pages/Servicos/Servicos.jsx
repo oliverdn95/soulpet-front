@@ -7,17 +7,20 @@ import { toast } from "react-hot-toast";
 
 export function Servicos() {
 
+    // const [listaServicos, setListaServicos] = useState(null);
     const [servicos, setServicos] = useState(null);
     const [show, setShow] = useState(false);
-    const [idServico, setIdServicos] = useState(null);
+    const [idServ, setIdServ] = useState(null);
+    // const [showDelete, setShowDelete] = useState(false);
 
+    // [FE-12] Integrar a remoção de Serviços#12
     const handleClose = () => {
-        setIdServicos(null);
-        setShow(false)
+        setIdServ(null);
+        setShow(false);
     };
     const handleShow = (id) => {
-        setIdServicos(id);
-        setShow(true)
+        setIdServ(id);
+        setShow(true);
     };
 
     useEffect(() => {
@@ -35,13 +38,14 @@ export function Servicos() {
     }
 
     function onDelete() {
-        axios.delete(`http://localhost:3001/servicos/${idServico}`)
+        axios.delete(`http://localhost:3001/servicos/${idServ}`)
             .then(response => {
                 toast.success(response.data.message, { position: "bottom-right", duration: 2000 });
                 initializeTable();
+
             })
             .catch(error => {
-                console.log(error);
+
                 toast.error(error.response.data.message, { position: "bottom-right", duration: 2000 });
             });
         handleClose();
@@ -55,37 +59,36 @@ export function Servicos() {
                     <i className="bi bi-plus-lg me-2"></i> Serviços
                 </Button>
             </div>
-            {
-                servicos === null ?
-                    <Loader />
-                    :
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {servicos.map(servico => {
-                                return (
-                                    <tr key={servico.id}>
-                                        <td>{servico.nome}</td>
-                                        <td>{servico.preco}</td>
-                                        <td className="d-flex gap-2">
-                                            <Button onClick={() => handleShow(servico.id)}>
-                                                <i className="bi bi-trash-fill"></i>
-                                            </Button>
-                                            <Button as={Link} to={`/servicos/editar/${servico.id}`}>
-                                                <i className="bi bi-pencil-fill"></i>
-                                            </Button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </Table>
-            }
+            {servicos === null ? (
+                <Loader />
+            ) : (
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {servicos.map(servico => {
+                            return (
+                                <tr key={servico.id}>
+                                    <td>{servico.nome}</td>
+                                    <td>{servico.preco}</td>
+                                    <td className="d-flex gap-2">
+                                        <Button onClick={() => handleShow(servico.id)}>
+                                            <i className="bi bi-trash-fill"></i>
+                                        </Button>
+                                        <Button as={Link} to={`/servicos/editar/${servico.id}`}>
+                                            <i className="bi bi-pencil-fill"></i>
+                                        </Button>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </Table>
+            )}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Confirmação</Modal.Title>
