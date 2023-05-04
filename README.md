@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# SoulPet - Projeto DevOps 3 - Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[SoulPet - Projeto DevOps 3 - Back-End](https://github.com/oliverdn95/soulpet-back)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Integrantes:
 
-### `npm start`
+- **Ana Schwaab** - [Github](https://github.com/anaschwaab), [LinkedIn](https://www.linkedin.com/in/ana-schwaab/)
+- **Bruna Faria de Souza** - [Github](https://github.com/Brunafariia), [LinkedIn](https://www.linkedin.com/in/bruna-faria-de-souza-7b31a019b/)
+- **Danilo Araújo de Oliveira** - [Github](https://github.com/oliverdn95), [LinkedIn](https://www.linkedin.com/in/oliverdn95/)
+- **Luis Guedes** - [Github](https://github.com/luisgued3s), [LinkedIn](https://www.linkedin.com/in/guedes-luis/)
+- **Nilson Mazurchi** - [Github](https://github.com/nilsonmazurchi), [LinkedIn](https://www.linkedin.com/in/nilson-mazurchi/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Lista de conteúdos:
+- [SoulPet Front-end](#soulpet---projeto-devops-3---front-end)
+- [Integrandes do projeto](#integrantes)
+- [O que é o SoulPet API](#o-que-é-o-soulpet-api)
+- [O que consigo fazer com o SoulPet API?](#o-que-consigo-fazer-com-o-soulpet-api)
+- [Tecnologias usadas](#tecnologias-usadas)
+- [Melhorias em desenvolvimento](#melhorias-que-estão-em-desenvolvimento)
+- [Para rodar o projeto](#para-rodar-o-projeto)
+  1. [Baixar MySQL, git e Node.js.](#para-rodar-o-projeto)
+  2. [Fazer `git clone` do repositório.](#para-rodar-o-projeto)
+  3. [Instalar dependências do projeto.](#para-rodar-o-projeto)
+- [Funcionalidades da API](#funcionalidades-da-api)
+  7. [Home](#home)
+  2. [Agendamentos](#agendamentos)
+  3. [Clientes](#clientes)
+  4. [Pedidos](#pedidos)
+  5. [Pets](#pets)
+  6. [Produtos](#produtos)
+  7. [Servicos](#servicos)
+- [Agradecimentos Especiais](#soulcode-academy---bootcamp-react-nodejs)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## O que é o SoulPet API?
+É uma API para você utilizar para gerenciar seu Pet Shop, e o Soul, vem de SoulCode Academy.
 
-### `npm test`
+## O que consigo fazer com o SoulPet API?
+É uma interface gráfica para gerenciar um Pet Shop, com ele é possível:
+- gerenciar clientes.
+- gerenciar pets.
+- gerenciar pedido.
+- gerenciar pets.
+- gerenciar produtos.
+- gerenciar servicos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tecnologias usadas:
+Um projeto feito com uso de `Axios`, `Bootstrap`, `Bootstrap-icons`, `React`, `React-Bootstrap`, `React-Dom`, `React-Hook-Form`, `React-Hot-Toast`, `React-Router-Dom`, `React-Scripts`, `Web-Vitals`.
 
-### `npm run build`
+### Melhorias que estão em desenvolvimento:
+  Nenhuma melhoria prevista por enquanto.
+  <!-- TODO -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Para rodar o projeto
+1. É necessário que tenha o [MySQL Workbench](https://www.mysql.com/products/workbench/), [git](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git) e o [Node.Js](https://nodejs.org/en/download) instalados.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. É necessário fazer o clone do repositório para sua máquina 
+- ```git clone https://github.com/oliverdn95/soulpet-back.git```
 
-### `npm run eject`
+3. Instalar as dependências do projeto: 
+- dentro da pasta raiz do projeto executar o comando: ```npm install```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Funcionalidades da API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ### Home
+    Dashboard interativa com contador de total de clientes, pets, produtos, serviços e agendamentos, cadastrados no banco de dados.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    É possível pesquisar pelo nome do Cliente, e puxando pelo nome dele é possível ver os pets, pedidos e agendamentos feitos pelo cliente.
 
-## Learn More
+- ### Agendamentos
+    Na tela de agendamentos é possível ver a data agendado para o atendimento e se esse atendimento está pendente ou não, é possível também editar e excluir dados desse agendamento.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ### Clientes
+    Na tela de Clientes é possível ver a lista de Clientes, emails, telefones e nas ações é possível excluir um cliente, editar, ver os pets do cliente e ver os dados do endereço dele.
+    É possível adicionar clicando no botão `+ Clientes`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ### Pedidos
+    Na tela de Pedidos é possivel ver uma ordenação de pedidos, com os Nomes dos produtos, Datas de compra, Clientes Comprador e nas ações podemos ver detalhes  do pedido, editar o pedido e até mesmo excluir ele.
+    É possível adicionar clicando no botão `+ Pedidos`.
 
-### Code Splitting
+- ### Pets
+    Na tela de Pets é possível ver o nome dos pets, excluir, editar e ver mais informações do pet.
+    É possível adicionar clicando no botão `+ Pets`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- ### Produtos
+    Na tela produtos é possível ver o nome dos produtos, descrição, preço, desconto, validade do descontoe a categoria, é possível fazer filtragem por nome e categoria e editar/excluir individualmente cada produto.
+    É possível adicionar clicando no botão `+ Pets`.
 
-### Analyzing the Bundle Size
+- ### Servicos
+    Na tela de Serviços é listado todos os serviços cadastradados e seus respectivos preços, editar e excluir individualmente cada um deles.
+    É possível adicionar clicando no botão `+ Pets`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## SoulCode Academy - Bootcamp React Node.js
+Agradecimento especial para os Professores:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Gabriel Braga  - [Github](https://github.com/gabriel-soulcode), [LinkedIn](https://www.linkedin.com/in/f-gabriel-braga/)
+- Jose Almir  - [Github](https://github.com/jose-almir), [LinkedIn](https://www.linkedin.com/in/jose-almir/)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
