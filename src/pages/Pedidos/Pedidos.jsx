@@ -34,6 +34,10 @@ export function Pedidos() {
         setShowDetalhes(true);
     };
 
+    
+    function onDelete() {
+        
+    }
 
     useEffect(() => {
         initializeTable();
@@ -57,25 +61,6 @@ export function Pedidos() {
             });
     }
 
-    function onDelete() {
-        axios
-            .delete(`http://localhost:3001/pedidos/${idProduto}`)
-            .then((response) => {
-                toast.success(response.data.message, {
-                    position: "bottom-right",
-                    duration: 2000,
-                });
-                initializeTable();
-            })
-            .catch((error) => {
-                console.log(error);
-                toast.error(error.response.data.message, {
-                    position: "bottom-right",
-                    duration: 2000,
-                });
-            });
-        handleClose();
-    }
 
     function resetarPesquisa() {
         setFilterCliente("");
@@ -86,7 +71,7 @@ export function Pedidos() {
         <div className="clientes container">
             <div className="d-flex justify-content-between align-items-center">
                 <h1>Pedidos</h1>
-                <Button as={Link} to="/pedidos/novo">
+                <Button variant="success" as={Link} to="/pedidos/novo">
                     <i className="bi bi-plus-lg me-2"></i> Pedidos
                 </Button>
             </div>
@@ -118,7 +103,7 @@ export function Pedidos() {
                     </div>
                     <div className="col-md-2 align-self-end">
                         <label htmlFor="filterBtn" className="form-label"></label>
-                        <Button onClick={resetarPesquisa}>Resetar pesquisa</Button>
+                        <Button variant="secondary" style={{color: "black"}} onClick={resetarPesquisa}>Resetar pesquisa</Button>
                     </div>
                 </div>
             </div>
