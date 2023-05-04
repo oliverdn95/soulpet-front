@@ -18,6 +18,7 @@ import { Agendamentos } from "./pages/Agendamentos/Agendamentos";
 import { EditaAgendamento } from "./pages/EditaAgendamento/EditaAgendamento";
 import { EditaServico } from "./pages/EditaServico/EditaServico";
 import { Pedidos } from "./pages/Pedidos/Pedidos";
+import { NovoPedido } from "./pages/NovoPedido/NovoPedido";
 
 function App() {
   return (
@@ -26,23 +27,29 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
+
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/clientes/novo" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditaCliente />} />
+
+          <Route path="/pets" element={<Pets />} />
           <Route path="/pets/novo" element={<NovoPet />} />
           <Route path="/pets/editar/:id" element={<EditaPet />} />
-          <Route path="/pets" element={<Pets />} />
+
           <Route path="/produtos" element={<Produtos/>} />
           <Route path="/produtos/novo" element={<NovoProduto/>}/>
           <Route path="/produtos/editar/:id" element={<EditaProduto/>}/>
+
           <Route path="/servicos" element={<Servicos />}/>
           <Route path="/servicos/novo" element={<NovoServico />} />
           <Route path="/servicos/editar/:id" element={<EditaServico />} />
+
           <Route path="/agendamentos" element={<Agendamentos />}/>
           <Route path="/agendamentos/novo" element={<NovoAgendamento />}/>
           <Route path="/agendamentos/editar/:id" element={<EditaAgendamento/>}/>
-          <Route path="/pedidos" element={<Pedidos />} />
 
+          <Route path="/pedidos" element={<Pedidos />} />
+          <Route path="/pedidos/novo" element={<NovoPedido />}/>
         </Route>
       </Routes>
     </BrowserRouter>
