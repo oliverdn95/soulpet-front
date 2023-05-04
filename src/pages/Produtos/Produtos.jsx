@@ -38,19 +38,6 @@ export function Produtos() {
             });
     }
 
-    function handleFilter() {
-        axios.get(`http://localhost:3001/produtos?nome_like=${filterName}&categoria_like=${filterCategory}`)
-            .then(response => {
-                // Classifica a lista de produtos por nome e categoria
-                response.data.sort((a, b) => a.nome.localeCompare(b.nome) || a.categoria.localeCompare(b.categoria));
-                console.log(response.data)
-                setProdutos(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
-
     function onDelete() {
       axios.delete(`http://localhost:3001/produtos/${idProduto}`)
           .then(response => {
