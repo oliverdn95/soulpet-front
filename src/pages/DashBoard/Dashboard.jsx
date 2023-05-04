@@ -9,6 +9,7 @@ export function Dashboard() {
     const [pets, setPets] = useState([]);
     const [produtos, setProdutos] = useState([]);
     const [servicos, setServicos] = useState([]);
+    const [pedidos, setPedidos] = useState([]);
     const [agendamentos, setAgendamentos] = useState([]);
     const [filterCliente, setfilterCliente] = useState("");
     const [selectedClienteId, setSelectedClienteId] = useState(null);
@@ -54,6 +55,18 @@ export function Dashboard() {
             .catch(error => {
                 console.log(error);
             });
+        axios.get("http://localhost:3001/pedidos")
+            .then(response => {
+                setPedidos(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    function resetCampoPesquisa(){
+        setSelectedClienteId(null)
+        setfilterCliente("")
     }
 
     return (
@@ -122,7 +135,7 @@ export function Dashboard() {
         </Table>
     )}
     {selectedClienteId && (
-        <div className="clientes container">
+        <div className="pets container">
         <h2>Pets do cliente:</h2>
         <Table striped bordered hover>
             <thead>
@@ -149,7 +162,63 @@ export function Dashboard() {
     </div>
   )}
   {selectedClienteId && (
-    <Button variant="primary" onClick={() => setSelectedClienteId(null)}>Limpar seleção</Button>
+        <div className="pedidos container">
+        <h2>Pedidos do cliente:</h2>
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                    <th>Código:</th>
+                    <th>Quantidade:</th>
+                    <th>Produto:</th>
+                </tr>
+            </thead>
+            <tbody>
+            {pedidos
+            .filter((pedido) => pedido.clienteId === selectedClienteId)
+            .map((pedido) => {
+            const produto = produtos.find((prod) => prod.id === pedido.produtoId);
+            return (
+                <tr key={pedido.id}>
+                    <td>{pedido.codigo}</td>
+                    <td>{pedido.quantidade}</td>
+                    <td>{produto.nome}</td>
+                </tr>
+                 );
+                })}
+            </tbody>
+        </Table>
+    </div>
+  )}
+  {selectedClienteId && (
+        <div className="agendamentos container">
+        <h2>Agendamentos do cliente:</h2>
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                    <th>Data:</th>
+                    <th>Pet:</th>
+                    <th>Serviço:</th>
+                </tr>
+            </thead>
+            <tbody>
+            {agendamentos.filter(agendamento => agendamento.petId && agendamento.servicoId && pets.find(pet => pet.id === agendamento.petId)?.clienteId === selectedClienteId)
+            .map(agendamento => {
+            const pet = pets.find(pet => pet.id === agendamento.petId);
+            const servico = servicos.find(servico => servico.id === agendamento.servicoId);
+            return (
+                <tr key={pet.id}>
+                    <td>{agendamento.dataAgendada}</td>
+                    <td>{pet.nome}</td>
+                    <td>{servico.nome}</td>
+                </tr>
+            );
+            })}
+            </tbody>
+        </Table>
+    </div>
+  )}
+  {selectedClienteId && (
+    <Button variant="primary" onClick={() => resetCampoPesquisa()}>Limpar seleção</Button>
   )}
 </div>
 </div>
