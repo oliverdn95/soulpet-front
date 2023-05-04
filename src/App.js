@@ -25,9 +25,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-
+         <Route path="/" element={<Home />} > 
+            <Route path="/" element={<Dashboard />} />
+          </Route>
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/clientes/novo" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditaCliente />} />
