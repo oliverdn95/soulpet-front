@@ -1,0 +1,14 @@
+#campo{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fields{
+    width: 100%;
+    margin-right: 10px;
+}
+
+#botao{
+    height: fit-content;
+}
