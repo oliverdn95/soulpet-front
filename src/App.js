@@ -20,6 +20,7 @@ import { EditaServico } from "./pages/EditaServico/EditaServico";
 import { Pedidos } from "./pages/Pedidos/Pedidos";
 import { NovoPedido } from "./pages/NovoPedido/NovoPedido";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -50,6 +51,7 @@ function App() {
 
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/pedidos/novo" element={<NovoPedido />}/>
+
         </Route>
       </Routes>
     </BrowserRouter>
