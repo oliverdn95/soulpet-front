@@ -23,7 +23,7 @@
   2. [Fazer `git clone` do repositório.](#para-rodar-o-projeto)
   3. [Instalar dependências do projeto.](#para-rodar-o-projeto)
 - [Funcionalidades da API](#funcionalidades-da-api)
-  7. [Home](#home)
+  1. [Home](#home)
   2. [Agendamentos](#agendamentos)
   3. [Clientes](#clientes)
   4. [Pedidos](#pedidos)
